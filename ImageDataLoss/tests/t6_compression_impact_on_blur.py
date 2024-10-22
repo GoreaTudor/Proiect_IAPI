@@ -1,22 +1,22 @@
 from typing import List
 
-from tests import read_image, BOOKSHELF_IMAGE, write_image, create_folder, resize_image, box_blur
+from tests import read_image, create_folder, write_image, box_blur, write_image_with_quality, BOOKSHELF_IMAGE
 
 
-def compression_impact_on_blur(qualities: List[int], ksize: int):
-    image = read_image(BOOKSHELF_IMAGE)
-    folder_name = create_folder("T6")
-
-    write_image(image, "original.jpeg", folder_name)
+def compression_impact_on_blur(image_path: str, qualities: List[int], ksize: int):
+    image = read_image(image_path)
+    folder = create_folder("T6")
+    write_image(image, "original.jpeg", folder)
 
     blurred_image = box_blur(image, ksize)
 
     for quality in qualities:
-        write_image(blurred_image, f"q_{quality}.jpeg", folder_name)
+        write_image_with_quality(blurred_image, f"q_{quality}.jpeg", folder, quality)
 
-    write_image(blurred_image, "as_png.png", folder_name)
+    write_image(blurred_image, "as_png.png", folder)
 
 
 if __name__ == '__main__':
-    compression_impact_on_blur(qualities=[90, 70, 50],
+    compression_impact_on_blur(image_path=BOOKSHELF_IMAGE,
+                               qualities=[90, 70, 50],
                                ksize=11)

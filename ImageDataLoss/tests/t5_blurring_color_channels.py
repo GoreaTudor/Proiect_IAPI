@@ -1,14 +1,11 @@
-from typing import List
-
-from tests import read_image, BOOKSHELF_IMAGE, write_image, create_folder, split_image_color_channels, box_blur, \
-    merge_image_color_channels
+from tests import read_image, create_folder, write_image, split_image_color_channels, box_blur, \
+    merge_image_color_channels, BOOKSHELF_IMAGE
 
 
-def blurring_color_channels(sizes: List[int], ksize: int):
-    image = read_image(BOOKSHELF_IMAGE)  # todo many color regions
-    folder_name = create_folder("T5")
-
-    write_image(image, "original.jpeg", folder_name)
+def blurring_color_channels(image_path: str, ksize: int):
+    image = read_image(image_path)
+    folder = create_folder("T5")
+    write_image(image, "original.jpeg", folder)
 
     blue_ch, green_ch, red_ch = split_image_color_channels(image)
 
@@ -19,10 +16,10 @@ def blurring_color_channels(sizes: List[int], ksize: int):
     blurred_img_simple = box_blur(image, ksize)
     blurred_img_channels = merge_image_color_channels([blurred_blue_ch, blurred_green_ch, blurred_red_ch])
 
-    write_image(blurred_img_simple, f"blurred_simple.jpeg", folder_name)
-    write_image(blurred_img_channels, f"blurred_channels.jpeg", folder_name)
+    write_image(blurred_img_simple, f"blurred_simple.jpeg", folder)
+    write_image(blurred_img_channels, f"blurred_channels.jpeg", folder)
 
 
 if __name__ == '__main__':
-    blurring_color_channels(sizes=[512, 1024, 2048],
+    blurring_color_channels(image_path=BOOKSHELF_IMAGE,  # todo many color regions
                             ksize=11)

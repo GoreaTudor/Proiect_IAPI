@@ -30,9 +30,14 @@ def read_image(path):
     return image
 
 
-def write_image(image, file_name: str, folder_name: str, params=None):
+def write_image(image, file_name: str, folder_name: str):
     path = os.path.join(folder_name, file_name)
-    cv2.imwrite(path, image, params)
+    cv2.imwrite(path, image)
+
+
+def write_image_with_quality(image, file_name: str, folder_name: str, quality: int):
+    path = os.path.join(folder_name, file_name)
+    cv2.imwrite(path, image, [cv2.IMWRITE_JPEG_QUALITY, quality])
 
 
 ##### UTILS #####

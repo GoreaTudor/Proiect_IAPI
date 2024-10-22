@@ -1,21 +1,18 @@
-from tests import BOOKSHELF_IMAGE
-from tests import box_blur, gaussian_blur, median_blur
-from tests import create_folder, read_image, write_image
+from tests import read_image, create_folder, box_blur, gaussian_blur, median_blur, write_image, BOOKSHELF_IMAGE
 
-def diff_blur_same_kernel(image_path, ksize):
+
+def diff_blur_same_kernel(image_path: str, ksize: int):
     img = read_image(image_path)
-    folder_name = create_folder("T2")
+    folder = create_folder("T2")
 
     box = box_blur(img, ksize)
     gauss = gaussian_blur(img, ksize)
     median = median_blur(img, ksize)
 
-    write_image(img, "original.jpeg", folder_name)
-    write_image(box, f"median_{ksize}x{ksize}.jpeg", folder_name)
-    write_image(gauss, f"gauss_{ksize}x{ksize}.jpeg", folder_name)
-    write_image(median, f"median_{ksize}x{ksize}.jpeg", folder_name)
-
-    print(f"Blurred images saved in: {folder_name}")
+    write_image(img, "original.jpeg", folder)
+    write_image(box, f"box_{ksize}x{ksize}.jpeg", folder)
+    write_image(gauss, f"gauss_{ksize}x{ksize}.jpeg", folder)
+    write_image(median, f"median_{ksize}x{ksize}.jpeg", folder)
 
 
 if __name__ == '__main__':

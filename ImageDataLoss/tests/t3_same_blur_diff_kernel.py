@@ -1,17 +1,14 @@
-from tests import BOOKSHELF_IMAGE, BLURS
-from tests import create_folder, read_image, write_image
+from tests import read_image, create_folder, write_image, BLURS, BOOKSHELF_IMAGE
 
-def same_blur_diff_kernel(image_path, blur: str, ksize_min: int, ksize_max: int):
+
+def same_blur_diff_kernel(image_path: str, blur: str, ksize_min: int, ksize_max: int):
     img = read_image(image_path)
-    folder_name = create_folder("T3")
-
-    write_image(img, "original.jpeg", folder_name)
+    folder = create_folder("T3")
+    write_image(img, "original.jpeg", folder)
 
     for ksize in range(ksize_min, ksize_max + 1, 2):
         blurred_img = BLURS[blur](img, ksize)
-        write_image(blurred_img, f"{blur}_{ksize}x{ksize}.jpeg", folder_name)
-
-    print(f"Blurred images saved in: {folder_name}")
+        write_image(blurred_img, f"{blur}_{ksize}x{ksize}.jpeg", folder)
 
 
 if __name__ == '__main__':
