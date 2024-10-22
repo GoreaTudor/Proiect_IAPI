@@ -83,7 +83,7 @@ class ImageApp:
         elif self.blur_type.get() == "Box":
             self.processed_image = ip.apply_box_blur(image, kernel_size)
         elif self.blur_type.get() == "Median":
-            if kernel_size % 2 == 1:  # Ensure the kernel size is odd
+            if kernel_size % 2 == 1:
                 self.processed_image = ip.apply_median_blur(image, kernel_size)
             else:
                 messagebox.showerror("Kernel Size Error", "Kernel size for Median Blur must be odd.")
@@ -118,9 +118,3 @@ class ImageApp:
 
             os.remove(temp_path)
             messagebox.showinfo("Success", f"Image saved as {save_path}")
-
-
-if __name__ == "__main__":
-    root = tk.Tk()
-    app = ImageApp(root)
-    root.mainloop()
