@@ -1,4 +1,4 @@
-from tests import read_image, create_folder, write_image, add_noise_to_image, gaussian_blur, BOOKSHELF_IMAGE
+from tests import read_image, create_folder, write_image, add_noise_to_image, gaussian_blur, IMG_BOOKSHELF
 
 
 def noise_reduction(image_path: str, ksize: int):
@@ -14,5 +14,5 @@ def noise_reduction(image_path: str, ksize: int):
 
 
 if __name__ == '__main__':
-    noise_reduction(image_path=BOOKSHELF_IMAGE,
+    noise_reduction(image_path=IMG_BOOKSHELF,
                     ksize=11)

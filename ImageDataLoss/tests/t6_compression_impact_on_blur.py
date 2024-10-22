@@ -1,6 +1,6 @@
 from typing import List
 
-from tests import read_image, create_folder, write_image, box_blur, write_image_with_quality, BOOKSHELF_IMAGE
+from tests import read_image, create_folder, write_image, box_blur, write_image_with_quality, IMG_BOOKSHELF
 
 
 def compression_impact_on_blur(image_path: str, qualities: List[int], ksize: int):
@@ -17,6 +17,6 @@ def compression_impact_on_blur(image_path: str, qualities: List[int], ksize: int
 
 
 if __name__ == '__main__':
-    compression_impact_on_blur(image_path=BOOKSHELF_IMAGE,
+    compression_impact_on_blur(image_path=IMG_BOOKSHELF,
                                qualities=[90, 70, 50],
                                ksize=11)

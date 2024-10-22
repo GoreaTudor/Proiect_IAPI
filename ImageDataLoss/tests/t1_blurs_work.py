@@ -1,35 +1,31 @@
 import cv2
 
-from tests import BOOKSHELF_IMAGE
+from tests import IMG_FLOWER_640, IMG_FLOWER_1280, IMG_FLOWER_1920, resize_image
 
-
-def resize_image(image, max_width=800, max_height=600):
-    """Resize the image to fit within the specified dimensions, maintaining aspect ratio."""
-    height, width = image.shape[:2]
-
-    aspect_ratio = width / height
-
-    if width > max_width:
-        width = max_width
-        height = int(width / aspect_ratio)
-
-    if height > max_height:
-        height = max_height
-        width = int(height * aspect_ratio)
-
-    return cv2.resize(image, (width, height))
-
-# I did this test bc. the burring didn't seem to work...
-# It does work, just not the way I expected
 if __name__ == '__main__':
-    image = cv2.imread(BOOKSHELF_IMAGE)
-    resized_image = resize_image(image)
+    image_640 = cv2.imread(IMG_FLOWER_640)
+    image_1280 = cv2.imread(IMG_FLOWER_1280)
+    image_1920 = cv2.imread(IMG_FLOWER_1920)
 
-    # apparently the blur was applied, but a bigger kernel was needed to distinguish with eyes
-    blurred_image = cv2.blur(resized_image, (5, 5), 0)
+    blurred_image_640 = cv2.blur(image_640, (5, 5), 0)
+    blurred_image_1280 = cv2.blur(image_1280, (5, 5), 0)
+    blurred_image_1920 = cv2.blur(image_1920, (5, 5), 0)
 
-    cv2.imshow("Original Image", resized_image)
-    cv2.imshow("Blurred Image 1", blurred_image)
+    cv2.imshow("Original Image (640)", image_640)
+    cv2.imshow("Blurred Image (640)", blurred_image_640)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
+    cv2.imshow("Original Image (1280)", resize_image(image_1280, 640, 360))
+    cv2.imshow("Blurred Image (1280)", resize_image(blurred_image_1280, 640, 360))
+    # cv2.imshow("Original Image (1280)", image_1280)
+    # cv2.imshow("Blurred Image (1280)", blurred_image_1280)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
+
+    cv2.imshow("Original Image (1920)", resize_image(image_1920, 640, 360))
+    cv2.imshow("Blurred Image (1920)", resize_image(blurred_image_1920, 640, 360))
+    # cv2.imshow("Original Image (1920)", image_1920)
+    # cv2.imshow("Blurred Image (1920)", blurred_image_1920)
     cv2.waitKey(0)
     cv2.destroyAllWindows()

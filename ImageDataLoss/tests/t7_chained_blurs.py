@@ -1,6 +1,6 @@
 from typing import List
 
-from tests import read_image, create_folder, write_image, BLURS, BOOKSHELF_IMAGE
+from tests import read_image, create_folder, write_image, BLURS, IMG_BOOKSHELF
 
 
 def chained_blurs(image_path: str, blurs: List[str], ksize: int):
@@ -18,6 +18,6 @@ def chained_blurs(image_path: str, blurs: List[str], ksize: int):
 
 
 if __name__ == '__main__':
-    chained_blurs(image_path=BOOKSHELF_IMAGE,
+    chained_blurs(image_path=IMG_BOOKSHELF,
                   blurs=["box", "box", "median", "gaussian"],
                   ksize=11)
