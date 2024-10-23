@@ -1,6 +1,6 @@
 from typing import List
 
-from tests import read_image, IMG_BOOKSHELF, write_image, create_folder, resize_image, box_blur
+from tests import read_image, write_image, create_folder, resize_image, box_blur, IMG_FLOWER_1920
 
 
 def blur_diff_img_sizes(image_path: str, sizes: List[int], ksize: int):
@@ -16,6 +16,6 @@ def blur_diff_img_sizes(image_path: str, sizes: List[int], ksize: int):
 
 
 if __name__ == '__main__':
-    blur_diff_img_sizes(image_path=IMG_BOOKSHELF,
+    blur_diff_img_sizes(image_path=IMG_FLOWER_1920,
                         sizes=[512, 1024, 2048],
                         ksize=11)

@@ -11,6 +11,7 @@ IMG_PAPER_1280 = "..\\assets\\paper-4180408_1280.jpg"
 IMG_E_EQ_MC2 = "..\\assets\\pexels-jeshoots-com-147458-714699.jpg"
 IMG_DICE = "..\\assets\\pexels-pixabay-37534.jpg"
 IMG_BOOKSHELF = "..\\assets\\pexels-rachel-claire-5490916.jpg"
+IMG_MARKET = "..\\assets\\sarajevo-4505752_1280.jpg"
 
 
 ##### OS #####

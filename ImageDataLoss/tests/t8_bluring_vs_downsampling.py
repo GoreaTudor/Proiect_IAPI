@@ -1,4 +1,4 @@
-from tests import read_image, create_folder, write_image, box_blur, resize_image, IMG_BOOKSHELF
+from tests import read_image, create_folder, write_image, box_blur, resize_image, IMG_FLOWER_1920
 
 
 def blurring_vs_downscaling(image_path: str, ksize: int, size: int):
@@ -14,6 +14,6 @@ def blurring_vs_downscaling(image_path: str, ksize: int, size: int):
 
 
 if __name__ == '__main__':
-    blurring_vs_downscaling(image_path=IMG_BOOKSHELF,
+    blurring_vs_downscaling(image_path=IMG_FLOWER_1920,
                             ksize=11,
                             size=512)

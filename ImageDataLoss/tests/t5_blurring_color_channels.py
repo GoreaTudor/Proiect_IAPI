@@ -1,5 +1,5 @@
 from tests import read_image, create_folder, write_image, split_image_color_channels, box_blur, \
-    merge_image_color_channels, IMG_BOOKSHELF
+    merge_image_color_channels, IMG_FLOWER_1920
 
 
 def blurring_color_channels(image_path: str, ksize: int):
@@ -21,5 +21,5 @@ def blurring_color_channels(image_path: str, ksize: int):
 
 
 if __name__ == '__main__':
-    blurring_color_channels(image_path=IMG_BOOKSHELF,  # todo many color regions
+    blurring_color_channels(image_path=IMG_FLOWER_1920,
                             ksize=11)

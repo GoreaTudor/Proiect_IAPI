@@ -1,4 +1,4 @@
-from tests import read_image, create_folder, box_blur, gaussian_blur, median_blur, write_image, IMG_BOOKSHELF
+from tests import read_image, create_folder, box_blur, gaussian_blur, median_blur, write_image, IMG_FLOWER_1920
 
 
 def diff_blur_same_kernel(image_path: str, ksize: int):
@@ -16,5 +16,5 @@ def diff_blur_same_kernel(image_path: str, ksize: int):
 
 
 if __name__ == '__main__':
-    diff_blur_same_kernel(image_path=IMG_BOOKSHELF,
+    diff_blur_same_kernel(image_path=IMG_FLOWER_1920,
                           ksize=11)
