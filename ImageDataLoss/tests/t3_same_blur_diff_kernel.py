@@ -13,6 +13,6 @@ def same_blur_diff_kernel(image_path: str, blur: str, ksize_min: int, ksize_max:
 
 if __name__ == '__main__':
     same_blur_diff_kernel(image_path=IMG_FLOWER_1920,
-                          blur="gaussian",
+                          blur="box",
                           ksize_min=3,
                           ksize_max=15)

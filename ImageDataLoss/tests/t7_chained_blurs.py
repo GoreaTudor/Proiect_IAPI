@@ -14,6 +14,8 @@ def chained_blurs(image_path: str, blurs: List[str], ksize: int):
     for blur in blurs:
         blurred_image = BLURS[blur](blurred_image, ksize)
         it += 1
+
+        # write_image(blurred_image, f"blur_{it}_{blur}.jpeg", folder)
         if it % 10 == 0:
             write_image(blurred_image, f"blur_{it}_{blur}.jpeg", folder)
 
